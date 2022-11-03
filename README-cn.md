@@ -1,7 +1,7 @@
 # saturn-monitor
 [![LICENSE](https://img.shields.io/github/license/qianhh/saturn-monitor)](./LICENSE "LICENSE")
 
-Language: [Chinese](./README-cn.md)
+Language: [English](./README.md)
 
 A monitoring tool for Filecoin Saturn L1 node.
 
@@ -9,7 +9,7 @@ A monitoring tool for Filecoin Saturn L1 node.
 Python3
 
 ## Configure
-1. Edit mail.py:
+1. 编辑 mail.py:
 ```python
 smtp_server = 'smtp.office365.com'  # smtp server
 smtp_port = 587  # smtp port
@@ -20,28 +20,28 @@ receivers = ['your_receive_email1', 'your_receive_email2']
 
 min_interval_minutes = 60  # minimum interval between notices
 ```
-If ```receivers``` are not set, the email address in the environment variable ```NODE_OPERATOR_EMAIL``` is used.
+如果不设置```receivers```，则会使用环境变量```NODE_OPERATOR_EMAIL```中的邮箱地址。
 
-##### Note: Only support TLS encryption, the smtp port is 587. (Gmail/Outlook/QQ)
+##### 注意: 只支持TLS加密，smtp端口号一般为587. (Gmail/Outlook/QQ)
 
-2. Make it executable
+2. 赋予执行权限
 ```bash
 chmod +x ./mail.py
 ```
 
-3. Test
+3. 测试
 
-Send a test email:
+发送测试邮件:
 ```bash
 ./mail.py test
 ```
 
-4. Setup the cron to run every 5 minutes:
+4. 设置cron每5分钟运行一次:
 ```bash
 crontab -e
 ```
 
-Add the following text replacing the path:
+添加以下文本替换路径:
 ```
 */5 * * * * /path/to/mail.py
 ```
