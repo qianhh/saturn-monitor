@@ -18,7 +18,9 @@ password = '********'  # password
 
 receivers = ['your_receive_email1', 'your_receive_email2']
 
-min_interval_minutes = 60  # minimum interval between notices
+min_interval_minutes = 30  # minimum interval between notices
+
+max_restart_count = 5  # maximum restart count in 3 minutes
 ```
 If ```receivers``` are not set, the email address in the environment variable ```NODE_OPERATOR_EMAIL``` is used.
 
@@ -36,14 +38,14 @@ Send a test email:
 ./mail.py test
 ```
 
-4. Setup the cron to run every 5 minutes:
+4. Setup the cron to run every 3 minutes:
 ```bash
 crontab -e
 ```
 
 Add the following text replacing the path:
 ```
-*/5 * * * * /path/to/mail.py
+*/3 * * * * /path/to/mail.py
 ```
 
 ## License

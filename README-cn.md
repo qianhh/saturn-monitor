@@ -18,7 +18,9 @@ password = '********'  # password
 
 receivers = ['your_receive_email1', 'your_receive_email2']
 
-min_interval_minutes = 60  # minimum interval between notices
+min_interval_minutes = 30  # minimum interval between notices
+
+max_restart_count = 5  # maximum restart count in 3 minutes
 ```
 如果不设置```receivers```，则会使用环境变量```NODE_OPERATOR_EMAIL```中的邮箱地址。
 
@@ -36,14 +38,14 @@ chmod +x ./mail.py
 ./mail.py test
 ```
 
-4. 设置cron每5分钟运行一次:
+4. 设置cron每3分钟运行一次:
 ```bash
 crontab -e
 ```
 
 添加以下文本替换路径:
 ```
-*/5 * * * * /path/to/mail.py
+*/3 * * * * /path/to/mail.py
 ```
 
 ## License
