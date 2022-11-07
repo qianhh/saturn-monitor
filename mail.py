@@ -101,7 +101,7 @@ def check(container_name):
         record["restart_count"] = restart_count
 
     if ok:
-        logs = subprocess.getoutput("docker logs -n 50 " + container_name)
+        logs = subprocess.getoutput("docker logs -t -n 50 " + container_name)
         send_mail(receivers, "[Saturn-Monitor] Alert",
                   "Node: {} \nVersion: {} \nWallet: {}\nStatus: {}\nRestartCount: {}\n\n\nlogs:\n{}".
                   format(node_id, node_version, fil_addr, status, restart_count - last_restart_count, logs))
